@@ -46,3 +46,6 @@ next-env.d.ts
 
 # configuración local de Claude Code
 .claude/settings.local.json
+
+# archivo que Next.js regenera en local
+AGENTS.md
