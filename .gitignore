@@ -49,3 +49,7 @@ next-env.d.ts
 
 # archivo que Next.js regenera en local
 AGENTS.md
+
+# configuración local de Claude Code (no va al repositorio)
+.claude/
+CLAUDE.md
