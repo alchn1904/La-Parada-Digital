@@ -41,7 +41,13 @@ npm run dev
 | DAST | OWASP ZAP (baseline) | CI |
 | Autorización en datos | Row Level Security | `supabase/migrations/0001_init.sql` |
 
+## Manejo de secretos
+- **En el repositorio no hay secretos** (lo verifica gitleaks en cada push). Solo existe `.env.example` con nombres de variables.
+- **Vercel** guarda únicamente la URL y la llave pública `anon` de Supabase. Esa llave no da acceso por sí sola: cada consulta pasa por Row Level Security.
+- **Supabase** es la fuente de verdad de los datos sensibles: Auth (sesiones y JWT), PostgreSQL con RLS y Supabase Vault para guardar claves de servicios externos cuando dejen de estar simulados.
+- **GitHub Secrets** guarda los tokens del pipeline (por ejemplo, para aplicar migraciones). La llave `service_role` no se usa en la aplicación.
+
 ## Ramas y despliegue
 - `main`: producción. Solo recibe Pull Requests con el CI en verde.
 - `test`: rama de pruebas; cada cambio pasa primero por aquí.
-- Al terminar el CI en `main`, `deploy.yml` publica en Vercel y aplica las migraciones de Supabase (si están los secretos del repositorio: `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`, `SUPABASE_ACCESS_TOKEN`, `SUPABASE_PROJECT_REF`, `SUPABASE_DB_PASSWORD`).
+- Vercel está conectado al repositorio: `main` se publica en producción y `test` genera una vista previa. Las migraciones de `supabase/migrations/` se aplican con Supabase CLI o desde el SQL Editor.
