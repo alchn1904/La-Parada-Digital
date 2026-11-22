@@ -4,6 +4,14 @@ Plataforma web para ordenar el ingreso de vehículos, transparentar el cobro de 
 
 **Stack:** Next.js 16 (React + TypeScript + Tailwind) · Supabase (Auth, PostgreSQL con Row Level Security, Storage) · Vercel · GitHub Actions.
 
+## Enlaces
+| Qué | Dónde |
+|---|---|
+| Solución en la nube | https://la-parada-digital.vercel.app |
+| Repositorio | https://github.com/alchn1904/La-Parada-Digital (Code → Download ZIP para bajar el código) |
+| Backlog y sprints en Jira | https://alchn1904.atlassian.net/jira/software/projects/MP/boards/2/backlog |
+| Pipeline (CI, CodeQL y escaneos) | https://github.com/alchn1904/La-Parada-Digital/actions |
+
 ## Qué hace
 | Épica | Pantallas |
 |---|---|
